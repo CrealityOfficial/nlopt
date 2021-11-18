@@ -207,4 +207,4 @@ target_include_directories (${nlopt_lib} PRIVATE
   src/algs/esch
   src/api)
   
-add_subdirectory (src/api)
+add_subdirectory (src/api EXCLUDE_FROM_ALL)
