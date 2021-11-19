@@ -169,10 +169,10 @@ if (NLOPT_CXX11)
 endif ()
 
 set (nlopt_lib nlopt)
-__add_real_target(${nlopt_lib} dll SOURCE ${NLOPT_SOURCES} DEF NLOPT_DLL NLOPT_DLL_EXPORT BOOST_ALL_NO_LIB BOOST_ALL_DYN_LINK 
+__add_real_target(${nlopt_lib} dll SOURCE ${NLOPT_SOURCES} LIB ${M_LIBRARY} DEF NLOPT_DLL NLOPT_DLL_EXPORT BOOST_ALL_NO_LIB BOOST_ALL_DYN_LINK 
 								   INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src/api ${CMAKE_CURRENT_BINARY_DIR})
 add_dependencies(${nlopt_lib} generate-cpp)
-target_link_libraries (${nlopt_lib} ${M_LIBRARY})
+#target_link_libraries (${nlopt_lib} ${M_LIBRARY})
 
 if(INSTALL_NLOPT)
 	INSTALL(TARGETS nlopt
