@@ -23,6 +23,9 @@ if (POLICY CMP0086)
   # UseSWIG honors SWIG_MODULE_NAME via -module flag
   cmake_policy(SET CMP0086 NEW)
 endif ()
+if (POLICY CMP0071)
+  cmake_policy(SET CMP0071 NEW)
+endif()
 
 include (CheckIncludeFiles)
 include (CheckFunctionExists)
