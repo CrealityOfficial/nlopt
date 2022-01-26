@@ -172,8 +172,15 @@ if (NLOPT_CXX11)
 endif ()
 
 set (nlopt_lib nlopt)
-__add_real_target(${nlopt_lib} dll SOURCE ${NLOPT_SOURCES} LIB ${M_LIBRARY} DEF NLOPT_DLL NLOPT_DLL_EXPORT BOOST_ALL_NO_LIB BOOST_ALL_DYN_LINK 
-								   INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src/api ${CMAKE_CURRENT_BINARY_DIR})
+           
+if(BUILD_NLOPT_STATIC)
+    __add_real_target(${nlopt_lib} lib SOURCE ${NLOPT_SOURCES} LIB ${M_LIBRARY} DEF NLOPT_DLL NLOPT_DLL_EXPORT BOOST_ALL_NO_LIB BOOST_ALL_DYN_LINK
+                                   INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src/api ${CMAKE_CURRENT_BINARY_DIR})
+else()
+    __add_real_target(${nlopt_lib} dll SOURCE ${NLOPT_SOURCES} LIB ${M_LIBRARY} DEF NLOPT_DLL NLOPT_DLL_EXPORT BOOST_ALL_NO_LIB BOOST_ALL_DYN_LINK
+                                   INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src/api ${CMAKE_CURRENT_BINARY_DIR})
+endif()
+
 add_dependencies(${nlopt_lib} generate-cpp)
 #target_link_libraries (${nlopt_lib} ${M_LIBRARY})
 
