@@ -214,7 +214,7 @@ target_include_directories (${nlopt_lib} PRIVATE
   
 add_subdirectory (src/api EXCLUDE_FROM_ALL)
 
-if(CC_INSTALL_NLOPT)
+if(CC_INSTALL_NLOPT_STATIC)
 	__install_directory_specif(${CMAKE_CURRENT_SOURCE_DIR}/src/api/ nlopt)
 	INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/nlopt.hpp DESTINATION include)
 endif()
